@@ -1,25 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import Data from './Data';
+import Card from './Cards';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const App =() => (
+    <>
+        <h1 className='heading_style'>List of top 15 Netflix Series in 2021</h1>
 
+        {Data.map((val, index) => {
+            console.log(index);
+            return (
+                <Card
+                    key={val.id}
+                    imgs={val.image}
+                    title={val.title}
+                    name={val.name}
+                    link={val.link}
+                />
+            );
+        })}
+    </>
+);
 export default App;
